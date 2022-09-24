@@ -8,17 +8,26 @@
 </head>
 <body>
 <header>
-    <div class="d-flex flex-row justify-content-between p-3 mb-5">
-        <div> Logo</div>
-        <div><h1>Pokedex</h1></div>
-        <div>
-            <form action="procesaLogin.php" method="post" enctype="application/x-www-form-urlencoded">
-                <input type="text" placeholder="Usuario" name="user">
-                <input type="password" placeholder="Contraseña" name="pass">
-                <input type="submit" value="Ingresar" class="btn btn-dark">
-            </form>
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid " >
+                <a class="navbar-brand" href="#">
+                    <img src="imagenes/pokebola.png" alt="" class="img-fluid " width="50" height="50">
+                    <h1 class="d-inline">Pokedex</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div>
+                        <form action="procesaLogin.php" method="post" enctype="application/x-www-form-urlencoded">
+                            <input type="text" placeholder="Usuario" name="user">
+                            <input type="password" placeholder="Contraseña" name="pass">
+                            <input type="submit" value="Ingresar" class="btn btn-dark">
+                        </form>
+                    </div>
+                </div>
         </div>
-    </div>
+    </nav>
     <form action="buscarPokemon.php" method="post" enctype="application/x-www-form-urlencoded">
         <div class="input-group mb-3 p-2">
             <input type="text" class="form-control" placeholder="Ingrese el nombre,tipo o número de pokémon" aria-label="Recipient's username" aria-describedby="basic-addon2">

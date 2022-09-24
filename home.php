@@ -16,7 +16,9 @@ if(!isset($_SESSION["logueado"]) && !$_SESSION["logueado"]){
 <body>
 <header>
     <div class="d-flex flex-row justify-content-between p-3 mb-5">
-        <div> Logo</div>
+        <div>
+            <img src="imagenes/pokebola.jpg" alt="" class="img-fluid">
+        </div>
         <div><h1>Pokedex</h1></div>
         <div>
             <h2>
