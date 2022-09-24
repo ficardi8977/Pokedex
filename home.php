@@ -16,17 +16,16 @@ if(!isset($_SESSION["logueado"]) && !$_SESSION["logueado"]){
 <body>
 <header>
     <div class="d-flex flex-row justify-content-between p-3 mb-5">
-        <div>
-            <img src="imagenes/pokebola.jpg" alt="" class="img-fluid">
-        </div>
-        <div><h1>Pokedex</h1></div>
-        <div>
+            <div>
+                <img src="imagenes/pokebola.png" alt="" class="img-fluid " width="50" height="50">
+            </div>
+
+            <h1>Pokedex</h1>
             <h2>
                 <?php
                 echo $_SESSION["nombre"];
                 ?>
             </h2>
-        </div>
     </div>
     <div class="input-group mb-3 p-2">
         <input type="text" class="form-control" placeholder="Ingrese el nombre,tipo o número de pokémon" aria-label="Recipient's username" aria-describedby="basic-addon2">
