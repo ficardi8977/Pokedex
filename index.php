@@ -25,7 +25,7 @@
             </div>
     <form action="buscarPokemon.php" method="post" enctype="application/x-www-form-urlencoded">
         <div class="input-group mb-3 p-2">
-            <input type="text" class="form-control" placeholder="Ingrese el nombre,tipo o número de pokémon" aria-label="Recipient's username" aria-describedby="basic-addon2">
+            <input type="text" id ="nombre" name="nombre" class="form-control" placeholder="Ingrese el nombre,tipo o número de pokémon" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <input type="submit" name="buscarPokemon" value="Quien es este pokemon?" class="input-group-text" id="basic-addon2">
 <!--            <span class="input-group-text" id="basic-addon2" type="submit" name="">Quien es este pokemon?</span>-->
         </div>
