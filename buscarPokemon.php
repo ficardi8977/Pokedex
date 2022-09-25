@@ -5,8 +5,16 @@ $database = new Database();
 
 $sql = "SELECT * FROM pokemon";
 
-$resultados= $database->query($sql);
+if(isset($_POST["nombre"]))
+{
+    $nombreBusqueda = $_POST["nombre"];
+    
+    $sql = $sql . " where tipo LIKE '%".$nombreBusqueda."%'".
+    " OR nombre LIKE '%".$nombreBusqueda."%'".
+    " OR numero LIKE '%".$nombreBusqueda."%'";
+}
 
+$resultados= $database->query($sql);
 
 foreach ( $resultados as $item){
 
@@ -21,5 +29,4 @@ foreach ( $resultados as $item){
                 </td>".
             "</tr>";
 }
-
-//$database->__destruct();
+header()
