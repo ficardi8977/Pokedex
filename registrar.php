@@ -9,19 +9,18 @@ $imagen= $_POST["imagen"];
 $tipo= $_POST["tipo"];
 $descripcion= $_POST["descripcion"];
 
-$sql = "INSERT INTO pokemon (numero, nombre, imagen, tipo, descripcion)
+$sql = 'INSERT INTO pokemon (numero, nombre, imagen, tipo, descripcion)
 VALUES (".$numero .
-",".$nombre.
-",".$imagen.
-",".$tipo.
-",".$descripcion ")";
+        ",".$nombre.
+        ",".$imagen.
+        ",".$tipo.
+        ",".$descripcion ")';
 
 if ($conn->query($sql) === TRUE) {
-echo “Registro Creado";
+    echo "Registro Creado";
 
 } else {
-echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
 $conn->close();
-}
 ?>
