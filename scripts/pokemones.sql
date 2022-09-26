@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2022 a las 06:01:06
+-- Servidor: localhost
+-- Tiempo de generación: 26-09-2022 a las 07:13:19
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -41,26 +41,26 @@ CREATE TABLE `pokemon` (
 --
 
 INSERT INTO `pokemon` (`id`, `numero`, `imagen`, `nombre`, `tipo`, `descripcion`) VALUES
-(4, 1, 'Bulbasaur.JPG', 'Bulbasaur', 'veneno.png', NULL),
-(5, 2, 'Ivysaur.PNG', 'Ivysaur', 'veneno.png', NULL),
-(6, 3, 'Venusaur.PNG', 'Venusaur', 'fuego.png', NULL),
-(7, 4, 'Charmander.PNG', 'Charmander', 'fuego.png', NULL),
-(8, 5, 'Charmeleon.PNG', 'Charmeleon', 'fuego.png', NULL),
-(9, 6, 'Charizard.PNG', 'Charizard', 'agua.png', NULL),
-(10, 7, 'Squirtle.PNG', 'Squirtle', 'agua.png', NULL),
-(11, 8, 'Wartortle.PNG', 'Wartortle', 'agua.png', NULL),
-(12, 9, 'Blastoise.PNG', 'Blastoise', 'tierra.png', NULL),
-(13, 10, 'Caterpie.PNG', 'Caterpie', 'tierra.png', NULL),
-(14, 11, 'Metapod.PNG', 'Metapod', 'tierra.png', NULL),
-(15, 12, 'Butterfree.PNG', 'Butterfree', 'veneno.png', NULL),
-(16, 13, 'Weedle.PNG', 'Weedle', 'veneno.png', NULL),
-(17, 14, 'Kakuna.PNG', 'Kakuna', 'veneno.png', NULL),
-(18, 15, 'Beedrill.PNG', 'Beedrill', 'veneno.png', NULL),
-(19, 16, 'Pidgey.PNG', 'Pnumerogey', 'tierra.png', NULL),
-(20, 17, 'Pidgeotto.PNG', 'Pnumerogeotto', 'tierra.png', NULL),
-(21, 18, 'Pidgeot.PNG', 'Pnumerogeot', 'tierra.png', NULL),
-(22, 19, 'Rattata.PNG', 'Rattata', 'tierra.png', NULL),
-(23, 20, 'Raticate.PNG', 'Raticate', 'tierra.png', NULL),
+(1, 1, 'Bulbasaur.png', 'Bulbasaur', 'veneno.png', NULL),
+(2, 2, 'Ivysaur.png', 'Ivysaur', 'veneno.png', NULL),
+(3, 3, 'Venusaur.png', 'Venusaur', 'fuego.png', NULL),
+(4, 4, 'Charmander.png', 'Charmander', 'fuego.png', NULL),
+(5, 5, 'Charmeleon.png', 'Charmeleon', 'fuego.png', NULL),
+(6, 6, 'Charizard.png', 'Charizard', 'agua.png', NULL),
+(7, 7, 'Squirtle.png', 'Squirtle', 'agua.png', NULL),
+(8, 8, 'Wartortle.png', 'Wartortle', 'agua.png', NULL),
+(9, 9, 'Blastoise.png', 'Blastoise', 'tierra.png', NULL),
+(10, 10, 'Caterpie.png', 'Caterpie', 'tierra.png', NULL),
+(11, 11, 'Metapod.png', 'Metapod', 'tierra.png', NULL),
+(12, 12, 'Butterfree.png', 'Butterfree', 'veneno.png', NULL),
+(13, 13, 'Weedle.png', 'Weedle', 'veneno.png', NULL),
+(14, 14, 'Kakuna.png', 'Kakuna', 'veneno.png', NULL),
+(15, 15, 'Beedrill.png', 'Beedrill', 'veneno.png', NULL),
+(16, 16, 'Pidgey.png', 'Pnumerogey', 'tierra.png', NULL),
+(17, 17, 'Pidgeotto.png', 'Pnumerogeotto', 'tierra.png', NULL),
+(18, 18, 'Pidgeot.png', 'Pnumerogeot', 'tierra.png', NULL),
+(19, 19, 'Rattata.png', 'Rattata', 'tierra.png', NULL),
+(20, 20, 'Raticate.png', 'Raticate', 'tierra.png', NULL);
 
 -- --------------------------------------------------------
 
@@ -84,8 +84,8 @@ INSERT INTO `usuario` (`Id`, `Nombre`, `Password`, `Administrador`) VALUES
 (2, 'Eve', '1234', b'1'),
 (3, 'Juan', '1234', b'1'),
 (4, 'Tomas', '1234', b'1'),
-(5, 'Sofia', '1234', b'1');
-(6, 'default', '1234', b'0'),
+(5, 'Sofia', '1234', b'1'),
+(6, 'default', '1234', b'0');
 
 --
 -- Índices para tablas volcadas
@@ -112,13 +112,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `pokemon`
 --
 ALTER TABLE `pokemon`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

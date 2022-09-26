@@ -56,7 +56,7 @@
             <tbody>
             <?php
             include_once("cargarResultados.php");
-            include_once ("Database.php"); 
+            include_once ("Database.php");
         
             $nombre="";
             if(isset($_GET['nombre'])){
@@ -65,7 +65,7 @@
 
             $database = new Database();
 
-            $sql = "SELECT * FROM pokemon";
+            $sql = "SELECT * FROM `pokemon`";
 
             if(isset($_GET["nombre"]))
             {
@@ -76,7 +76,7 @@
                 " OR numero LIKE '%".$nombreBusqueda."%'";
             }
 
-            $resultados= $database->query($sql);
+            $resultados = $database->query($sql);
 
             if(count($resultados) == 0)
             {

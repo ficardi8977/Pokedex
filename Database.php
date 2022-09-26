@@ -29,5 +29,4 @@ class Database {
     public function execute($sql) {
        return $this->conexion->query($sql);       
     }
-
 }

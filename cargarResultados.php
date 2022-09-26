@@ -12,8 +12,11 @@ foreach ( $resultados as $item){
                 if(isset($_SESSION['logueado']) && $_SESSION['administrador'])
                 {
                     $datos = $datos . " <td>
-                    <input type='submit' class='btn btn-dark' name='modificacion' value='Modificacion'>
-                    <input type='sumbit' class='btn btn-dark' name='baja' value='Baja'>
+                        <form action='update.php' method='POST' enctype='application/x-www-form-urlencoded'>
+                            <input type='hidden' name='numero' value='".$item['numero']."'>
+                            <input type='submit' class='btn btn-dark' name='modificacion' value='Modificacion'>
+                            <input type='submit' class='btn btn-dark' name='baja' value='Baja'>
+                        </form>
                     </td>";
                 }
                 $datos = $datos ."</tr>";
