@@ -26,14 +26,26 @@
                 </div>
             </div>
 </header>
-<form class= "form-column-center" action="alta.php" method="POST" enctype="application/x-www-form-urlencoded">
+<form class= "form-column-center" action="registrar.php" method="POST" enctype="multipart/form-data">
     <input type="number" id="numero" name="numero" placeholder="numero"> 
     <input type="text" id="nombre" name="nombre" placeholder="nombre">
-    <input type="text" id="imagen" name="imagen" placeholder="imagen">
-    <input type="text" id="tipo" name="tipo" placeholder="tipo">
-    <input type="text" id="descripcion" name="descripcion" placeholder="descripcion">
-    
-    <input type='sumbit' class='btn btn-dark' name='registrar' value='registrar'>
+    <input type="file" id="imagen" name="imagen" placeholder="imagen">
+    <select name="tipo">
+        <option value="default" selected>seleccione un tipo</option>
+        <option value="agua.png" >agua</option>
+        <option value="fuego.png">fuego</option>        
+        <option value="tierra.png">tierra</option>
+        <option value="veneno.png">veneno</option>
+    </select>
+    <textarea name="descripcion" id="descripcion" rows="5" placeholder="descripcion"></textarea>
+    <input type='submit' class='btn btn-dark' name='registrar' value='registrar'>
+    <?php
+               $mensaje="";
+               if(isset($_GET['mensaje'])){
+                   $mensaje= $_GET['mensaje'];
+                   echo '<span>'.$mensaje.'<span>';
+               }
+    ?>
 </form>
 </body>
 </html>

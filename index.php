@@ -15,13 +15,25 @@
                 <div>
                     <h1>Pokedex</h1>
                 </div>
-                <div>
+                <?php
+                session_start();
+                if(isset($_SESSION["logueado"]))
+                {
+                    echo "<h3> Hola ".$_SESSION["nombre"]."<h3>";
+                    echo'    <form action="logout.php" method="post" enctype="application/x-www-form-urlencoded">
+                            <input type="submit" class="btn btn-dark" name="salir" value="Salir">
+                            </form>';
+                }else{
+                 echo '<div>
                     <form action="procesaLogin.php" method="post" enctype="application/x-www-form-urlencoded">
                         <input type="text" placeholder="Usuario" name="user">
                         <input type="password" placeholder="Contraseña" name="pass">
                         <input type="submit" value="Ingresar" class="btn btn-dark">
                     </form>
-                </div>
+                </div>';
+                }
+                ?>
+                
             </div>
     <form action="buscarPokemon.php" method="GET" enctype="application/x-www-form-urlencoded">
         <div class="input-group mb-3 p-2">
@@ -78,6 +90,15 @@
             </tbody>
         </table>
     </div>
+    <?php
+    if(isset($_SESSION['logueado']) && $_SESSION['administrador']){
+    echo '<form action="alta.php" method="post" enctype="application/x-www-form-urlencoded">    
+        <input type="submit" value="Nuevo Pokemon" class="btn btn-dark">    
+        <img src="" alt="">
+        </form>';
+    }
+
+    ?>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
