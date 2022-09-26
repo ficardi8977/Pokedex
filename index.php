@@ -23,11 +23,10 @@
                     </form>
                 </div>
             </div>
-    <form action="buscarPokemon.php" method="post" enctype="application/x-www-form-urlencoded">
+    <form action="buscarPokemon.php" method="GET" enctype="application/x-www-form-urlencoded">
         <div class="input-group mb-3 p-2">
             <input type="text" id ="nombre" name="nombre" class="form-control" placeholder="Ingrese el nombre,tipo o número de pokémon" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <input type="submit" name="buscarPokemon" value="Quien es este pokemon?" class="input-group-text" id="basic-addon2">
-<!--            <span class="input-group-text" id="basic-addon2" type="submit" name="">Quien es este pokemon?</span>-->
+            <input type="submit" value="Quien es este pokemon?" class="input-group-text" id="basic-addon2">
         </div>
     </form>
 </header>
@@ -44,7 +43,37 @@
             </thead>
             <tbody>
             <?php
-            include_once ("buscarPokemon.php");
+            include_once("cargarResultados.php");
+            include_once ("Database.php"); 
+        
+            $nombre="";
+            if(isset($_GET['nombre'])){
+                $nombre = $_GET['nombre'];
+            }
+
+            $database = new Database();
+
+            $sql = "SELECT * FROM pokemon";
+
+            if(isset($_GET["nombre"]))
+            {
+                $nombreBusqueda = $_GET["nombre"];
+                
+                $sql = $sql . " where tipo LIKE '%".$nombreBusqueda."%'".
+                " OR nombre LIKE '%".$nombreBusqueda."%'".
+                " OR numero LIKE '%".$nombreBusqueda."%'";
+            }
+
+            $resultados= $database->query($sql);
+
+            if(count($resultados) == 0)
+            {
+                echo "<tr><h1> pokemon no encontrado </h1></tr>";
+                $sql = "SELECT * FROM pokemon";
+                $resultados= $database->query($sql);
+            }
+            cargarResultado($resultados);
+
             ?>
             </tbody>
         </table>
