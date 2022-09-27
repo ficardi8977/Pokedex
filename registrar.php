@@ -8,22 +8,33 @@ $nombre= $_POST["nombre"];
 $imagen= $_FILES["imagen"];
 $tipo= $_POST["tipo"];
 $descripcion= $_POST["descripcion"];
+$nro= $_POST["nro"];
 
-move_uploaded_file($_FILES["imagen"]["tmp_name"], "imagenes/" . $_FILES["imagen"]["name"]);
+if (isset($_POST["registrar"])) {
+    move_uploaded_file($_FILES["imagen"]["tmp_name"], "imagenes/" . $_FILES["imagen"]["name"]);
 
-$sql = "INSERT INTO pokemon (numero, nombre, imagen, tipo, descripcion)
-VALUES (".$numero .
-",'".$nombre.
-"','".$_FILES["imagen"]["name"].
-"','".$tipo.
-"','".$descripcion."')";
-
-try {
-    $database->execute($sql);
-    header("location:index.php");
-    exit();
-
-} catch (Exception $e) {
-    header("location:alta.php?mensaje=error al crear pokemon");
+    $sql = "INSERT INTO pokemon (numero, nombre, imagen, tipo, descripcion)
+VALUES (" . $numero .
+        ",'" . $nombre .
+        "','" . $_FILES["imagen"]["name"] .
+        "','" . $tipo .
+        "','" . $descripcion . "')";
+    ejecutar($sql, $database);
 }
+
+elseif (isset($_POST["modificar"]) || (!empty($_FILES["imagen"]["tmp_name"]))) {
+    move_uploaded_file($_FILES["imagen"]["tmp_name"], "imagenes/" . $_FILES["imagen"]["name"]);
+    $sql = "UPDATE pokemon SET numero=" . $numero . ", nombre='" . $nombre . "', tipo='" . $tipo . "', descripcion='" . $descripcion . "', imagen='" . $_FILES["imagen"]["name"] . "' WHERE numero=" . $nro;
+    ejecutar($sql, $database);
+}
+function ejecutar($sql, $database){
+    try {
+        $database->execute($sql);
+
+    } catch (Exception $e) {
+        header("location:alta.php?mensaje=error al crear pokemon");
+    }
+}
+header("location:index.php");
+exit();
 ?>

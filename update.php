@@ -36,6 +36,7 @@ if (isset($_POST['modificacion'])):
                     </header>
                     <?php
                     echo '<form class= "form-column-center" action="registrar.php" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="nro" value="'.$numero.'">
                         <input type="number" id="numero" name="numero" placeholder="numero" value="'.$resultados[0]["numero"].'"> 
                         <input type="text" id="nombre" name="nombre" placeholder="nombre" value="'.$resultados[0]["nombre"].'">
                         <input type="file" id="imagen" name="imagen" placeholder="imagen">
@@ -47,7 +48,7 @@ if (isset($_POST['modificacion'])):
                             <option value="veneno.png">veneno</option>
                         </select>
                         <textarea name="descripcion" id="descripcion" rows="5" placeholder="descripcion"></textarea>
-                        <input type="submit" class="btn btn-dark" name="registrar" value="registrar">
+                        <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
                         </form>';
                         $mensaje="";
                         if(isset($_GET['mensaje'])){
@@ -60,4 +61,8 @@ if (isset($_POST['modificacion'])):
 <?php
 elseif (isset($_POST['baja'])):
     echo 'borrar '.$numero;
+    $sql = "DELETE FROM pokemon WHERE numero =". $numero;
+    $database->execute($sql);
+    header("location:index.php");
+    exit();
 endif;
