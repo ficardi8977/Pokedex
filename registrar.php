@@ -22,17 +22,21 @@ VALUES (" . $numero .
     ejecutar($sql, $database);
 }
 
-elseif (isset($_POST["modificar"]) || (!empty($_FILES["imagen"]["tmp_name"]))) {
+elseif (isset($_POST["modificar"])) {
     move_uploaded_file($_FILES["imagen"]["tmp_name"], "imagenes/" . $_FILES["imagen"]["name"]);
-    $sql = "UPDATE pokemon SET numero=" . $numero . ", nombre='" . $nombre . "', tipo='" . $tipo . "', descripcion='" . $descripcion . "', imagen='" . $_FILES["imagen"]["name"] . "' WHERE numero=" . $nro;
+    $sql = "UPDATE pokemon SET numero=" . $numero . ", nombre='" . $nombre . "', tipo='" . $tipo . "', descripcion='" . $descripcion . "' WHERE numero=" . $nro;
     ejecutar($sql, $database);
+    if (!empty($_FILES["imagen"]["tmp_name"])){
+        $sql = "UPDATE pokemon SET imagen='".$_FILES["imagen"]["name"]."' WHERE numero=".$numero;
+        ejecutar($sql, $database);
+    }
 }
 function ejecutar($sql, $database){
     try {
         $database->execute($sql);
 
     } catch (Exception $e) {
-        header("location:alta.php?mensaje=error al crear pokemon");
+        header("location:index.php?mensaje=error al crear pokemon");
     }
 }
 header("location:index.php");
