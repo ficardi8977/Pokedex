@@ -1,10 +1,10 @@
 <?php
-$numero = $_POST['numero'];
+$numero = $_GET['numero'];
 include_once ("Database.php");
-    $database = new Database();
-    $sql = "SELECT * FROM pokemon WHERE numero=$numero";
-    $resultados = $database->query($sql);
-if (isset($_POST['modificacion'])): 
+$database = new Database();
+$sql = "SELECT * FROM pokemon WHERE numero=$numero";
+$resultados = $database->query($sql);
+if (isset($_GET['modificacion'])):
     ?>
     <!DOCTYPE html>
         <html lang="en">
@@ -20,7 +20,7 @@ if (isset($_POST['modificacion'])):
                     <header>
                                 <div class="d-flex flex-row justify-content-between p-3 mb-5">
                                     <div>
-                                        <img src="imagenes/pokebola.png" alt="" class="img-fluid " width="50" height="50">
+                                    <a href='index.php'><img src="imagenes/pokebola.png" alt="" class="img-fluid " width="50" height="50"></a>
                                     </div>
                                     <div>
                                         <h1>Pokedex</h1>
@@ -37,29 +37,29 @@ if (isset($_POST['modificacion'])):
                     <?php
                     echo '<form class= "form-column-center" action="registrar.php" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="nro" value="'.$numero.'">
-                        <input type="number" id="numero" name="numero" placeholder="numero" value="'.$resultados[0]["numero"].'"> 
-                        <input type="text" id="nombre" name="nombre" placeholder="nombre" value="'.$resultados[0]["nombre"].'">
+                        <input type="number" id="numero" name="numero" placeholder="numero" value="' . $resultados[0]["numero"] . '"> 
+                        <input type="text" id="nombre" name="nombre" placeholder="nombre" value="' . $resultados[0]["nombre"] . '">
                         <input type="file" id="imagen" name="imagen" placeholder="imagen">
                         <select name="tipo">
-                            <option value="'.$resultados[0]["tipo"].'" selected>'.substr($resultados[0]["tipo"],0,-4).'</option>
+                            <option value="' . $resultados[0]["tipo"] . '" selected>' . substr($resultados[0]["tipo"],0,-4) . '</option>
                             <option value="agua.png" >agua</option>
                             <option value="fuego.png">fuego</option>
                             <option value="tierra.png">tierra</option>
                             <option value="veneno.png">veneno</option>
                         </select>
                         <textarea name="descripcion" id="descripcion" rows="5" placeholder="descripcion"></textarea>
-                        <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">
-                        </form>';
-                        $mensaje="";
-                        if(isset($_GET['mensaje'])){
-                            $mensaje= $_GET['mensaje'];
-                            echo '<span>'.$mensaje.'<span>';
-                        }
+                        <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">';
+                    $mensaje="";
+                    if(isset($_GET['mensaje'])){
+                        $mensaje= $_GET['mensaje'];
+                        echo '<span>' . $mensaje . '<span>';
+                    }
+                    echo '</form>';
                     ?>
                 </body>
     </html>
 <?php
-elseif (isset($_POST['baja'])):
+elseif (isset($_GET['baja'])):
     echo 'borrar '.$numero;
     $sql = "DELETE FROM pokemon WHERE numero =". $numero;
     $database->execute($sql);

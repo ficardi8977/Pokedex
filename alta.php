@@ -12,7 +12,7 @@
 <header>
             <div class="d-flex flex-row justify-content-between p-3 mb-5">
                 <div>
-                    <img src="imagenes/pokebola.png" alt="" class="img-fluid " width="50" height="50">
+                <a href='index.php'><img src="imagenes/pokebola.png" alt="" class="img-fluid " width="50" height="50"></a>
                 </div>
                 <div>
                     <h1>Pokedex</h1>
@@ -40,11 +40,11 @@
     <textarea name="descripcion" id="descripcion" rows="5" placeholder="descripcion"></textarea>
     <input type='submit' class='btn btn-dark' name='registrar' value='registrar'>
     <?php
-               $mensaje="";
-               if(isset($_GET['mensaje'])){
-                   $mensaje= $_GET['mensaje'];
-                   echo '<span>'.$mensaje.'<span>';
-               }
+                $mensaje="";
+                if(isset($_GET['mensaje'])){
+                    $mensaje= $_GET['mensaje'];
+                    echo '<span>' . $mensaje . '<span>';
+                }
     ?>
 </form>
 </body>
