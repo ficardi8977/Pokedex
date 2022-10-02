@@ -1,6 +1,8 @@
 <?php
-$numero = $_GET['numero'];
+require_once("verificarLogin.php");
 include_once ("Database.php");
+
+$numero = $_GET['numero'];
 $database = new Database();
 $sql = "SELECT * FROM pokemon WHERE numero=$numero";
 $resultados = $database->query($sql);
@@ -26,11 +28,13 @@ if (isset($_GET['modificacion'])):
                                         <h1>Pokedex</h1>
                                     </div>
                                     <div>
-                                        <form action="procesaLogin.php" method="GET" enctype="application/x-www-form-urlencoded">
-                                            <input type="text" placeholder="Usuario" name="user">
-                                            <input type="password" placeholder="Contraseña" name="pass">
-                                            <input type="submit" value="Ingresar" class="btn btn-dark">
-                                        </form>
+                                    <?php
+                                         require_once("verificarLogin.php");
+                                         echo "<h3> Hola ".$_SESSION["nombre"]."<h3>";
+                                         echo'<form action="logout.php" method="post" enctype="application/x-www-form-urlencoded">
+                                                     <input type="submit" class="btn btn-dark" name="salir" value="Salir">
+                                                     </form>';
+                                    ?>
                                     </div>
                                 </div>
                     </header>

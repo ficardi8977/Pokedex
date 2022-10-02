@@ -25,6 +25,15 @@
                     </form>
                 </div>
             </div>
+            <?php
+            require_once("verificarLogin.php");
+                echo "<h3> Hola ".$_SESSION["nombre"]."<h3>";
+                echo'<form action="logout.php" method="post" enctype="application/x-www-form-urlencoded">
+                            <input type="submit" class="btn btn-dark" name="salir" value="Salir">
+                            </form>';
+            ?>
+            </div>
+           
 </header>
 <form class= "form-column-center" action="registrar.php" method="POST" enctype="multipart/form-data">
     <input type="number" id="numero" name="numero" placeholder="numero"> 

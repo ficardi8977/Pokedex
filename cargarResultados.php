@@ -9,7 +9,7 @@ foreach ( $resultados as $item){
                 "<td>" . $item["numero"] . "</td>".
                 "<td>" . $item["nombre"] . "</td>";
 
-                if(isset($_SESSION['logueado']) && $_SESSION['administrador'])
+                if(isset($_SESSION['logueado']) && $_SESSION['logueado'] && $_SESSION['administrador'])
                 {
                     $datos = $datos . " <td>
                         <form action='update.php' method='GET' enctype='application/x-www-form-urlencoded'>

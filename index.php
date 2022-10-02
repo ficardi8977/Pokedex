@@ -17,7 +17,7 @@
                 </div>
                 <?php
                 session_start();
-                if($_SESSION["logueado"])
+                if(isset($_SESSION["logueado"]) && $_SESSION["logueado"])
                 {
                     echo "<h3> Hola ".$_SESSION["nombre"]."<h3>";
                     echo'    <form action="logout.php" method="post" enctype="application/x-www-form-urlencoded">
