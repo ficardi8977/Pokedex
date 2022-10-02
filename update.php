@@ -43,6 +43,7 @@ if (isset($_GET['modificacion'])):
                         <input type="hidden" name="nro" value="'.$numero.'">
                         <input type="number" id="numero" name="numero" placeholder="numero" value="' . $resultados[0]["numero"] . '"> 
                         <input type="text" id="nombre" name="nombre" placeholder="nombre" value="' . $resultados[0]["nombre"] . '">
+                        <img width="100" height="100" src="imagenes/' . $resultados[0]["imagen"] . '">
                         <input type="file" id="imagen" name="imagen" placeholder="imagen">
                         <select name="tipo">
                             <option value="' . $resultados[0]["tipo"] . '" selected>' . substr($resultados[0]["tipo"],0,-4) . '</option>
@@ -51,7 +52,7 @@ if (isset($_GET['modificacion'])):
                             <option value="tierra.png">tierra</option>
                             <option value="veneno.png">veneno</option>
                         </select>
-                        <textarea name="descripcion" id="descripcion" rows="5" placeholder="descripcion"></textarea>
+                        <textarea name="descripcion" id="descripcion" rows="5" placeholder="descripcion">'.$resultados[0]["descripcion"].'</textarea>
                         <input type="submit" class="btn btn-dark" name="modificar" value="Modificar">';
                     $mensaje="";
                     if(isset($_GET['mensaje'])){
