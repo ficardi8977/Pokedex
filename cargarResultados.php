@@ -3,8 +3,14 @@ function cargarResultado($resultados){
 
 foreach ( $resultados as $item){
 
-          $datos =  "<tr>".
-                '<td><img width="100" height="100" src="imagenes/' . $item["imagen"] . '"></td>'.
+          $datos =  "<tr class='text-center align-middle'>".
+                '<td>
+                <img width="100" height="100" src="imagenes/' . $item["imagen"] . '">
+                <form action="detallePokemon.php" method="GET" enctype="application/x-www-form-urlencoded">
+                <input type="submit" value="Ver detalle" class="btn btn-dark">
+                <input type="hidden" name="numero" value=' . $item['numero'].'>
+                </form>
+                </td>'.
                 '<td><img width="100" height="100" src="imagenes/' . $item["tipo"] . '"></td>'.
                 "<td>" . $item["numero"] . "</td>".
                 "<td>" . $item["nombre"] . "</td>";

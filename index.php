@@ -10,19 +10,18 @@
 <header>
             <div class="d-flex flex-row justify-content-between p-3 mb-5">
                 <div>
-                    <a href='index.php'><img src="imagenes/pokebola.png" alt="" class="img-fluid " width="50" height="50"></a>
-                </div>
-                <div>
-                    <h1>Pokedex</h1>
+                    <a class= "d-inline align-middle" href='index.php'><img src="imagenes/pokebola.png" alt="" class="img-fluid " width="50" height="50"></a>
+                    <h1 class= "d-inline align-middle">Pokedex</h1>
                 </div>
                 <?php
                 session_start();
                 if(isset($_SESSION["logueado"]) && $_SESSION["logueado"])
                 {
-                    echo "<h3> Hola ".$_SESSION["nombre"]."<h3>";
+                    echo "<div class='d-flex flex-row'>
+                        <h3 class='px-2'> Hola ".$_SESSION["nombre"]."<h3>";
                     echo'    <form action="logout.php" method="post" enctype="application/x-www-form-urlencoded">
                             <input type="submit" class="btn btn-dark" name="salir" value="Salir">
-                            </form>';
+                            </form></div>';
                 }else{
                  echo '<div>
                     <form action="procesaLogin.php" method="post" enctype="application/x-www-form-urlencoded">
@@ -46,7 +45,7 @@
     <div class="container">
         <table class="table table-bordered">
             <thead>
-            <tr>
+            <tr class='text-center'>
                 <th scope="col">Imagen</th>
                 <th scope="col">Tipo</th>
                 <th scope="col">Numero</th>
@@ -93,8 +92,9 @@
     <?php
     if(isset($_SESSION['logueado']) && $_SESSION['administrador']){
     echo '<form action="alta.php" method="post" enctype="application/x-www-form-urlencoded">    
+        <div class="text-center my-5">
         <input type="submit" value="Nuevo Pokemon" class="btn btn-dark">    
-        <img src="" alt="">
+        </div>
         </form>';
     }
 
